@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, forwardRef, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Box,
-  Button,
+  // Button,
   Icon,
   IconButton,
   Icons,
@@ -29,7 +29,8 @@ import {
   NavItemContent,
   NavLink,
 } from '../../../components/nav';
-import { getExplorePath, getHomeRoomPath, getHomeSearchPath } from '../../pathUtils';
+import { getHomeRoomPath, getHomeSearchPath } from '../../pathUtils';
+// import { getExplorePath, getHomeRoomPath, getHomeSearchPath } from '../../pathUtils';
 import { getCanonicalAliasOrRoomId } from '../../../utils/matrix';
 import { useSelectedRoom } from '../../../hooks/router/useSelectedRoom';
 import { useHomeSearchSelected } from '../../../hooks/router/useHomeSelected';
@@ -156,7 +157,7 @@ function HomeHeader() {
 }
 
 function HomeEmpty() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <NavEmptyCenter>
@@ -174,21 +175,21 @@ function HomeEmpty() {
         }
         options={
           <>
-            <Button onClick={() => openCreateRoom()} variant="Secondary" size="300">
-              <Text size="B300" truncate>
-                Create Room
-              </Text>
-            </Button>
-            <Button
-              onClick={() => navigate(getExplorePath())}
-              variant="Secondary"
-              fill="Soft"
-              size="300"
-            >
-              <Text size="B300" truncate>
-                Explore Community Rooms
-              </Text>
-            </Button>
+            {/* <Button onClick={() => openCreateRoom()} variant="Secondary" size="300"> */}
+            {/*   <Text size="B300" truncate> */}
+            {/*     Create Room */}
+            {/*   </Text> */}
+            {/* </Button> */}
+            {/* <Button */}
+            {/*   onClick={() => navigate(getExplorePath())} */}
+            {/*   variant="Secondary" */}
+            {/*   fill="Soft" */}
+            {/*   size="300" */}
+            {/* > */}
+            {/*   <Text size="B300" truncate> */}
+            {/*     Explore Community Rooms */}
+            {/*   </Text> */}
+            {/* </Button> */}
           </>
         }
       />

@@ -1,30 +1,31 @@
-import React, { FormEventHandler, MouseEventHandler, useCallback, useState } from 'react';
+import React, { FormEventHandler, useCallback } from 'react';
+// import React, { FormEventHandler, MouseEventHandler, useCallback, useState } from 'react';
 import {
   Box,
   Button,
-  Header,
-  Icon,
-  IconButton,
-  Icons,
+  // Header,
+  // Icon,
+  // IconButton,
+  // Icons,
   Input,
-  Menu,
+  // Menu,
   Overlay,
   OverlayBackdrop,
   OverlayCenter,
-  PopOut,
-  RectCords,
+  // PopOut,
+  // RectCords,
   Spinner,
   Text,
   config,
 } from 'folds';
-import FocusTrap from 'focus-trap-react';
-import { Link } from 'react-router-dom';
+// import FocusTrap from 'focus-trap-react';
+// import { Link } from 'react-router-dom';
 import { MatrixError } from 'matrix-js-sdk';
 import { getMxIdLocalPart, getMxIdServer, isUserId } from '../../../utils/matrix';
 import { EMAIL_REGEX } from '../../../utils/regex';
 import { useAutoDiscoveryInfo } from '../../../hooks/useAutoDiscoveryInfo';
 import { AsyncStatus, useAsyncCallback } from '../../../hooks/useAsyncCallback';
-import { useAuthServer } from '../../../hooks/useAuthServer';
+// import { useAuthServer } from '../../../hooks/useAuthServer';
 import { useClientConfig } from '../../../hooks/useClientConfig';
 import {
   CustomLoginResponse,
@@ -35,83 +36,83 @@ import {
 } from './loginUtil';
 import { PasswordInput } from '../../../components/password-input';
 import { FieldError } from '../FiledError';
-import { getResetPasswordPath } from '../../pathUtils';
-import { stopPropagation } from '../../../utils/keyboard';
+// import { getResetPasswordPath } from '../../pathUtils';
+// import { stopPropagation } from '../../../utils/keyboard';
 
-function UsernameHint({ server }: { server: string }) {
-  const [anchor, setAnchor] = useState<RectCords>();
-
-  const handleOpenMenu: MouseEventHandler<HTMLElement> = (evt) => {
-    setAnchor(evt.currentTarget.getBoundingClientRect());
-  };
-  return (
-    <PopOut
-      anchor={anchor}
-      position="Top"
-      align="End"
-      content={
-        <FocusTrap
-          focusTrapOptions={{
-            initialFocus: false,
-            onDeactivate: () => setAnchor(undefined),
-            clickOutsideDeactivates: true,
-            escapeDeactivates: stopPropagation,
-          }}
-        >
-          <Menu>
-            <Header size="300" style={{ padding: `0 ${config.space.S200}` }}>
-              <Text size="L400">Hint</Text>
-            </Header>
-            <Box
-              style={{ padding: config.space.S200, paddingTop: 0 }}
-              direction="Column"
-              tabIndex={0}
-              gap="100"
-            >
-              <Text size="T300">
-                <Text as="span" size="Inherit" priority="300">
-                  Username:
-                </Text>{' '}
-                johndoe
-              </Text>
-              <Text size="T300">
-                <Text as="span" size="Inherit" priority="300">
-                  Matrix ID:
-                </Text>
-                {` @johndoe:${server}`}
-              </Text>
-              <Text size="T300">
-                <Text as="span" size="Inherit" priority="300">
-                  Email:
-                </Text>
-                {` johndoe@${server}`}
-              </Text>
-            </Box>
-          </Menu>
-        </FocusTrap>
-      }
-    >
-      <IconButton
-        tabIndex={-1}
-        onClick={handleOpenMenu}
-        type="button"
-        variant="Background"
-        size="300"
-        radii="300"
-        aria-pressed={!!anchor}
-      >
-        <Icon style={{ opacity: config.opacity.P300 }} size="100" src={Icons.Info} />
-      </IconButton>
-    </PopOut>
-  );
-}
+// function UsernameHint({ server }: { server: string }) {
+//   const [anchor, setAnchor] = useState<RectCords>();
+//
+//   const handleOpenMenu: MouseEventHandler<HTMLElement> = (evt) => {
+//     setAnchor(evt.currentTarget.getBoundingClientRect());
+//   };
+//   return (
+//     <PopOut
+//       anchor={anchor}
+//       position="Top"
+//       align="End"
+//       content={
+//         <FocusTrap
+//           focusTrapOptions={{
+//             initialFocus: false,
+//             onDeactivate: () => setAnchor(undefined),
+//             clickOutsideDeactivates: true,
+//             escapeDeactivates: stopPropagation,
+//           }}
+//         >
+//           <Menu>
+//             <Header size="300" style={{ padding: `0 ${config.space.S200}` }}>
+//               <Text size="L400">Hint</Text>
+//             </Header>
+//             <Box
+//               style={{ padding: config.space.S200, paddingTop: 0 }}
+//               direction="Column"
+//               tabIndex={0}
+//               gap="100"
+//             >
+//               <Text size="T300">
+//                 <Text as="span" size="Inherit" priority="300">
+//                   Username:
+//                 </Text>{' '}
+//                 johndoe
+//               </Text>
+//               <Text size="T300">
+//                 <Text as="span" size="Inherit" priority="300">
+//                   Matrix ID:
+//                 </Text>
+//                 {` @johndoe:${server}`}
+//               </Text>
+//               <Text size="T300">
+//                 <Text as="span" size="Inherit" priority="300">
+//                   Email:
+//                 </Text>
+//                 {` johndoe@${server}`}
+//               </Text>
+//             </Box>
+//           </Menu>
+//         </FocusTrap>
+//       }
+//     >
+//       <IconButton
+//         tabIndex={-1}
+//         onClick={handleOpenMenu}
+//         type="button"
+//         variant="Background"
+//         size="300"
+//         radii="300"
+//         aria-pressed={!!anchor}
+//       >
+//         <Icon style={{ opacity: config.opacity.P300 }} size="100" src={Icons.Info} />
+//       </IconButton>
+//     </PopOut>
+//   );
+// }
 
 type PasswordLoginFormProps = {
   defaultUsername?: string;
   defaultEmail?: string;
 };
 export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLoginFormProps) {
-  const server = useAuthServer();
+  // const server = useAuthServer();
   const clientConfig = useClientConfig();
 
   const serverDiscovery = useAutoDiscoveryInfo();
@@ -133,7 +134,7 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
         user: username,
       },
       password,
-      initial_device_display_name: 'Cinny Web',
+      initial_device_display_name: 'Web',
     });
   };
 
@@ -151,7 +152,7 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
         user: mxIdUsername,
       },
       password,
-      initial_device_display_name: 'Cinny Web',
+      initial_device_display_name: 'Web',
     });
   };
   const handleEmailLogin = (email: string, password: string) => {
@@ -163,7 +164,7 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
         address: email,
       },
       password,
-      initial_device_display_name: 'Cinny Web',
+      initial_device_display_name: 'Web',
     });
   };
 
@@ -210,7 +211,7 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
           size="500"
           required
           outlined
-          after={<UsernameHint server={server} />}
+          // after={<UsernameHint server={server} />}
         />
         {loginState.status === AsyncStatus.Error && (
           <>
@@ -249,9 +250,9 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
             </>
           )}
           <Box grow="Yes" shrink="No" justifyContent="End">
-            <Text as="span" size="T200" priority="400" align="Right">
-              <Link to={getResetPasswordPath(server)}>Forget Password?</Link>
-            </Text>
+            {/* <Text as="span" size="T200" priority="400" align="Right"> */}
+            {/*   <Link to={getResetPasswordPath(server)}>Forget Password?</Link> */}
+            {/* </Text> */}
           </Box>
         </Box>
       </Box>

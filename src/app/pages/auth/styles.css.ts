@@ -15,11 +15,11 @@ export const AuthCard = style({
   marginTop: '1vh',
   maxWidth: toRem(460),
   width: '100%',
-  backgroundColor: color.Surface.Container,
+  // backgroundColor: color.Surface.Container,
   color: color.Surface.OnContainer,
-  borderRadius: config.radii.R400,
-  boxShadow: config.shadow.E100,
-  border: `${config.borderWidth.B300} solid ${color.Surface.ContainerLine}`,
+  // borderRadius: config.radii.R400,
+  // boxShadow: config.shadow.E100,
+  // border: `${config.borderWidth.B300} solid ${color.Surface.ContainerLine}`,
   overflow: 'hidden',
 });
 
@@ -43,7 +43,7 @@ export const AuthCardContent = style({
   width: '100%',
   margin: 'auto',
   padding: config.space.S400,
-  paddingTop: config.space.S700,
+  // paddingTop: config.space.S700,
   paddingBottom: toRem(44),
   gap: toRem(44),
 });

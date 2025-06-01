@@ -1,4 +1,5 @@
-import { Box, Text } from 'folds';
+import { Box } from 'folds';
+// import { Box, Text } from 'folds';
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import * as patternsCSS from '../../styles/Patterns.css';
@@ -20,9 +21,9 @@ export function SplashScreen({ children }: SplashScreenProps) {
         alignItems="Center"
         justifyContent="Center"
       >
-        <Text size="H2" align="Center">
-          Cinny
-        </Text>
+        {/* <Text size="H2" align="Center"> */}
+        {/*   Cinny */}
+        {/* </Text> */}
       </Box>
     </Box>
   );

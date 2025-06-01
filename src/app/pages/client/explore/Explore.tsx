@@ -35,7 +35,8 @@ import { useMatrixClient } from '../../../hooks/useMatrixClient';
 import { getMxIdServer } from '../../../utils/matrix';
 import { AsyncStatus, useAsyncCallback } from '../../../hooks/useAsyncCallback';
 import { useNavToActivePathMapper } from '../../../hooks/useNavToActivePathMapper';
-import { PageNav, PageNavContent, PageNavHeader } from '../../../components/page';
+import { PageNav, PageNavContent } from '../../../components/page';
+// import { PageNav, PageNavContent, PageNavHeader } from '../../../components/page';
 import { stopPropagation } from '../../../utils/keyboard';
 
 export function AddServer() {
@@ -169,15 +170,15 @@ export function Explore() {
 
   return (
     <PageNav>
-      <PageNavHeader>
-        <Box grow="Yes" gap="300">
-          <Box grow="Yes">
-            <Text size="H4" truncate>
-              Explore Community
-            </Text>
-          </Box>
-        </Box>
-      </PageNavHeader>
+      {/* <PageNavHeader> */}
+      {/*   <Box grow="Yes" gap="300"> */}
+      {/*     <Box grow="Yes"> */}
+      {/*       <Text size="H4" truncate> */}
+      {/*         Explore Community */}
+      {/*       </Text> */}
+      {/*     </Box> */}
+      {/*   </Box> */}
+      {/* </PageNavHeader> */}
 
       <PageNavContent>
         <Box direction="Column" gap="300">
