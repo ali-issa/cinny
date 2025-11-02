@@ -31,7 +31,8 @@ export function useClientConfig(): ClientConfig {
 }
 
 export const clientDefaultServer = (clientConfig: ClientConfig): string =>
-  clientConfig.homeserverList?.[clientConfig.defaultHomeserver ?? 0] ?? 'm.0x795e.com';
+  clientConfig.homeserverList?.[clientConfig.defaultHomeserver ?? 0] ??
+  import.meta.env.CLIENT_DEFAULT_SERVER;
 
 export const clientAllowedServer = (clientConfig: ClientConfig, server: string): boolean => {
   const { homeserverList, allowCustomHomeservers } = clientConfig;
